@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { PERSONAL_INFO } from '@/data/portfolioData';
-import { Github, Linkedin, Mail, ArrowUp, Terminal, Shield, Cpu } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowUp, CheckCircle2 } from 'lucide-react';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -12,10 +12,10 @@ export default function Footer() {
   return (
     <footer
       style={{
-        background: '#04060c',
-        borderTop: '1px solid rgba(0, 240, 255, 0.15)',
+        background: 'var(--bg-card)',
+        borderTop: '1px solid var(--bg-card-border)',
         paddingTop: '3.5rem',
-        paddingBottom: '2rem',
+        paddingBottom: '2.5rem',
         position: 'relative',
         zIndex: 1,
       }}
@@ -27,89 +27,87 @@ export default function Footer() {
             gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
             gap: '2.5rem',
             paddingBottom: '2.5rem',
-            borderBottom: '1px solid rgba(0, 240, 255, 0.12)',
+            borderBottom: '1px solid var(--bg-card-border)',
           }}
         >
           {/* Brand Col */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.9rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div
                 style={{
                   width: '32px',
                   height: '32px',
-                  borderRadius: '3px',
-                  background: 'rgba(0, 240, 255, 0.12)',
-                  border: '1px solid #00f0ff',
+                  borderRadius: '6px',
+                  background: 'var(--bg-secondary)',
+                  border: '1px solid var(--bg-card-border)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#00f0ff',
-                  fontFamily: 'var(--font-mono)',
-                  fontWeight: 800,
-                  fontSize: '0.88rem',
+                  color: 'var(--text-primary)',
+                  fontWeight: 700,
+                  fontSize: '0.85rem',
                 }}
               >
                 MH
               </div>
-              <span style={{ fontSize: '1.15rem', fontWeight: 800, color: '#fff', fontFamily: 'var(--font-mono)' }}>
+              <span style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--text-primary)' }}>
                 {PERSONAL_INFO.name}
               </span>
             </div>
 
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.84rem', lineHeight: 1.6, marginBottom: '1.25rem', fontFamily: 'var(--font-mono)' }}>
-              AI Engineer &amp; Odoo Developer. Architecting custom enterprise Odoo ERP modules,
-              UHF RFID hardware pipelines, enterprise LLM agents, and full-stack Flutter &amp; web apps.
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+              AI Engineer &amp; Enterprise Odoo Developer. Architecting custom enterprise Odoo ERP modules,
+              enterprise LLM workflows, and performant full-stack web and mobile systems.
             </p>
 
-            <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
               <a
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noreferrer"
-                className="btn btn-secondary"
+                className="btn btn-secondary btn-sm"
                 title="GitHub"
-                style={{ padding: '0.4rem 0.65rem', fontSize: '0.74rem', borderRadius: '3px' }}
+                style={{ borderRadius: '6px' }}
               >
-                <Github size={15} />
-                <span>GITHUB</span>
+                <Github size={14} />
+                <span>GitHub</span>
               </a>
               <a
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="btn btn-secondary"
+                className="btn btn-secondary btn-sm"
                 title="LinkedIn"
-                style={{ padding: '0.4rem 0.65rem', fontSize: '0.74rem', borderRadius: '3px' }}
+                style={{ borderRadius: '6px' }}
               >
-                <Linkedin size={15} />
-                <span>LINKEDIN</span>
+                <Linkedin size={14} />
+                <span>LinkedIn</span>
               </a>
               <a
                 href={`mailto:${PERSONAL_INFO.email}`}
-                className="btn btn-secondary"
+                className="btn btn-secondary btn-sm"
                 title="Email"
-                style={{ padding: '0.4rem 0.65rem', fontSize: '0.74rem', borderRadius: '3px' }}
+                style={{ borderRadius: '6px' }}
               >
-                <Mail size={15} />
-                <span>EMAIL</span>
+                <Mail size={14} />
+                <span>Email</span>
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 style={{ fontSize: '0.85rem', color: '#00f0ff', marginBottom: '1rem', fontFamily: 'var(--font-mono)', letterSpacing: '0.06em' }}>
-              // INDEX_ROUTING
+            <h4 style={{ fontSize: '0.88rem', color: 'var(--text-primary)', marginBottom: '1.25rem', fontWeight: 600 }}>
+              Quick Navigation
             </h4>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.82rem', fontFamily: 'var(--font-mono)' }}>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.65rem', fontSize: '0.86rem' }}>
               {[
-                { name: '01_OVERVIEW', href: '#about' },
-                { name: '02_CORE_SKILLS', href: '#skills' },
-                { name: '03_KERNEL_EXPERIENCE', href: '#experience' },
-                { name: '04_REPOSITORIES', href: '#projects' },
-                { name: '05_HARDWARE_AI_LAB', href: '#lab' },
-                { name: '06_ACADEMICS', href: '#education' },
-                { name: '07_DISPATCH_CONSOLE', href: '#contact' },
+                { name: 'Overview', href: '#about' },
+                { name: 'Experience', href: '#experience' },
+                { name: 'Featured Projects', href: '#projects' },
+                { name: 'Skills & Stack', href: '#skills' },
+                { name: 'Education & Honors', href: '#education' },
+                { name: 'Contact & Inquiries', href: '#contact' },
               ].map((item) => (
                 <li key={item.name}>
                   <a
@@ -120,12 +118,9 @@ export default function Footer() {
                       transition: 'color 0.15s ease',
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '0.35rem',
+                      gap: '0.45rem',
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = '#00f0ff')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
                   >
-                    <span style={{ color: '#00ff88' }}>&gt;</span>
                     <span>{item.name}</span>
                   </a>
                 </li>
@@ -133,23 +128,26 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Direct Line & Telemetry */}
+          {/* Direct Line & Credentials */}
           <div>
-            <h4 style={{ fontSize: '0.85rem', color: '#00f0ff', marginBottom: '1rem', fontFamily: 'var(--font-mono)', letterSpacing: '0.06em' }}>
-              // DIRECT_TELEMETRY
+            <h4 style={{ fontSize: '0.88rem', color: 'var(--text-primary)', marginBottom: '1.25rem', fontWeight: 600 }}>
+              Contact &amp; Credentials
             </h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', fontSize: '0.82rem', fontFamily: 'var(--font-mono)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.86rem' }}>
               <div style={{ color: 'var(--text-secondary)' }}>
-                CALLSIGN: <span style={{ color: '#fff' }}>{PERSONAL_INFO.phone}</span>
+                Phone:{' '}
+                <a href="https://wa.me/923187090077" target="_blank" rel="noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'none', fontWeight: 500 }}>
+                  {PERSONAL_INFO.phone}
+                </a>
               </div>
               <div style={{ color: 'var(--text-secondary)' }}>
-                DISPATCH: <span style={{ color: '#00f0ff' }}>{PERSONAL_INFO.email}</span>
+                Email:{' '}
+                <a href={`mailto:${PERSONAL_INFO.email}`} style={{ color: 'var(--text-primary)', textDecoration: 'none', fontWeight: 500 }}>
+                  {PERSONAL_INFO.email}
+                </a>
               </div>
               <div style={{ color: 'var(--text-secondary)' }}>
-                ROLE: <span style={{ color: '#00ff88' }}>AI Engineer &amp; Odoo Developer</span>
-              </div>
-              <div style={{ color: 'var(--text-secondary)' }}>
-                ALMA_MATER: <span style={{ color: '#fff' }}>FAST-NUCES (BSCS)</span>
+                Degree: <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>FAST-NUCES (BS Computer Science)</span>
               </div>
               
               <div
@@ -159,16 +157,17 @@ export default function Footer() {
                   alignItems: 'center',
                   gap: '0.5rem',
                   padding: '0.35rem 0.75rem',
-                  borderRadius: '3px',
-                  background: 'rgba(0, 255, 136, 0.08)',
-                  border: '1px solid rgba(0, 255, 136, 0.25)',
-                  fontSize: '0.72rem',
-                  color: '#00ff88',
-                  fontFamily: 'var(--font-mono)',
+                  borderRadius: '9999px',
+                  background: 'var(--badge-success-bg)',
+                  border: '1px solid var(--badge-success-border)',
+                  fontSize: '0.76rem',
+                  color: 'var(--badge-success-text)',
+                  fontWeight: 600,
+                  width: 'fit-content',
                 }}
               >
-                <Shield size={12} color="#00ff88" />
-                <span>ALL_SYSTEMS_OPERATIONAL // 99.98%</span>
+                <CheckCircle2 size={13} />
+                <span>Available for Projects &amp; Roles</span>
               </div>
             </div>
           </div>
@@ -183,21 +182,20 @@ export default function Footer() {
             justifyContent: 'space-between',
             gap: '1rem',
             paddingTop: '1.75rem',
-            fontSize: '0.78rem',
+            fontSize: '0.82rem',
             color: 'var(--text-muted)',
-            fontFamily: 'var(--font-mono)',
           }}
         >
-          <div>
-            © {new Date().getFullYear()} {PERSONAL_INFO.name}. AI Engineer &amp; Odoo Developer. All rights reserved.
+          <div suppressHydrationWarning>
+            © {new Date().getFullYear()} {PERSONAL_INFO.name}. AI Engineer &amp; Odoo Developer.
           </div>
 
           <button
             onClick={scrollToTop}
             className="btn btn-secondary btn-sm"
-            style={{ fontSize: '0.74rem', gap: '0.4rem', borderRadius: '3px' }}
+            style={{ fontSize: '0.78rem', gap: '0.45rem', borderRadius: '6px' }}
           >
-            <span>[ RETURN_TO_TOP ]</span>
+            <span>Back to Top</span>
             <ArrowUp size={13} />
           </button>
         </div>
@@ -205,4 +203,3 @@ export default function Footer() {
     </footer>
   );
 }
-

@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { PERSONAL_INFO, EXPERIENCES, EDUCATION, CERTIFICATIONS, SKILL_CATEGORIES } from '@/data/portfolioData';
-import { X, Printer, Download, Mail, Phone, MapPin, Globe, Linkedin, Github } from 'lucide-react';
+import { PERSONAL_INFO, EXPERIENCES, EDUCATION, CERTIFICATIONS } from '@/data/portfolioData';
+import { X, Printer, Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -22,158 +22,146 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
         className="modal-content"
         onClick={(e) => e.stopPropagation()}
         style={{
-          maxWidth: '850px',
-          background: '#0a0f1d',
-          padding: '2.5rem',
-          border: '1px solid rgba(0, 242, 254, 0.3)',
+          maxWidth: '860px',
+          background: 'var(--bg-card)',
+          padding: '2rem',
+          border: '1px solid var(--bg-card-border)',
         }}
       >
-        {/* Modal Controls Bar */}
+        {/* Modal Controls Bar (Hidden during print) */}
         <div
+          className="no-print"
           style={{
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
             paddingBottom: '1.25rem',
             marginBottom: '1.5rem',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+            borderBottom: '1px solid var(--bg-card-border)',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
             <span
               style={{
-                fontFamily: 'var(--font-mono)',
                 fontSize: '0.8rem',
-                color: '#00f2fe',
-                background: 'rgba(0, 242, 254, 0.1)',
+                fontWeight: 600,
+                color: 'var(--text-primary)',
+                background: 'var(--bg-secondary)',
+                border: '1px solid var(--bg-card-border)',
                 padding: '0.25rem 0.65rem',
                 borderRadius: '6px',
+                letterSpacing: '0.04em',
               }}
             >
-              CURRICULUM VITAE
+              CURRICULUM VITAE • 1-PAGE EXECUTIVE
             </span>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <button onClick={handlePrint} className="btn btn-secondary btn-sm" id="resume-print-btn">
+            <button onClick={handlePrint} className="btn btn-primary btn-sm" id="resume-print-btn">
               <Printer size={15} />
               <span>Print / Save PDF</span>
             </button>
             <button
               onClick={onClose}
-              style={{
-                background: 'rgba(255, 255, 255, 0.08)',
-                border: 'none',
-                color: '#fff',
-                width: '36px',
-                height: '36px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-              }}
+              className="btn btn-secondary btn-icon"
+              title="Close Modal"
+              style={{ width: '34px', height: '34px', borderRadius: '6px' }}
             >
-              <X size={18} />
+              <X size={16} />
             </button>
           </div>
         </div>
 
         {/* Printable Resume Body */}
-        <div id="printable-resume" style={{ color: '#e2e8f0', lineHeight: 1.6 }}>
+        <div id="printable-resume">
           {/* Header */}
-          <div style={{ borderBottom: '2px solid rgba(0, 242, 254, 0.4)', paddingBottom: '1.25rem', marginBottom: '1.5rem' }}>
-            <h1 style={{ fontSize: '2.2rem', color: '#fff', fontWeight: 800, marginBottom: '0.25rem' }}>
-              {PERSONAL_INFO.name}
-            </h1>
-            <div style={{ fontSize: '1.1rem', color: '#38bdf8', fontWeight: 600, marginBottom: '0.75rem' }}>
-              {PERSONAL_INFO.role}
+          <div className="resume-header">
+            <h1 className="resume-title">{PERSONAL_INFO.name}</h1>
+            <div className="resume-subtitle">
+              AI Engineer &amp; Enterprise Odoo Developer
             </div>
 
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '1.25rem',
-                fontSize: '0.85rem',
-                color: 'var(--text-secondary)',
-                fontFamily: 'var(--font-mono)',
-              }}
-            >
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <Phone size={13} color="#10b981" /> {PERSONAL_INFO.phone}
+            <div className="resume-contact-bar">
+              <span className="contact-item">
+                <Phone size={12} className="contact-icon" />
+                <span>{PERSONAL_INFO.phone}</span>
               </span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <Mail size={13} color="#00f2fe" /> {PERSONAL_INFO.email}
+              <span className="contact-item">
+                <Mail size={12} className="contact-icon" />
+                <a href={`mailto:${PERSONAL_INFO.email}`}>{PERSONAL_INFO.email}</a>
               </span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <Linkedin size={13} color="#38bdf8" /> linkedin.com/in/{PERSONAL_INFO.linkedinHandle}
+              <span className="contact-item">
+                <MapPin size={12} className="contact-icon" />
+                <span>Lahore, Pakistan (Open to Remote &amp; Relocation)</span>
               </span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <Github size={13} color="#fff" /> github.com/{PERSONAL_INFO.githubHandle}
+              <span className="contact-item">
+                <Linkedin size={12} className="contact-icon" />
+                <a href={PERSONAL_INFO.linkedin} target="_blank" rel="noreferrer">
+                  linkedin.com/in/{PERSONAL_INFO.linkedinHandle}
+                </a>
+              </span>
+              <span className="contact-item">
+                <Github size={12} className="contact-icon" />
+                <a href={PERSONAL_INFO.github} target="_blank" rel="noreferrer">
+                  github.com/{PERSONAL_INFO.githubHandle}
+                </a>
               </span>
             </div>
           </div>
 
           {/* Professional Summary */}
-          <div style={{ marginBottom: '1.75rem' }}>
-            <h3 style={{ fontSize: '1.15rem', color: '#00f2fe', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>
-              Professional Summary
-            </h3>
-            <p style={{ fontSize: '0.925rem', color: '#cbd5e1', lineHeight: 1.65 }}>
-              {PERSONAL_INFO.summary}
+          <div className="resume-section">
+            <h2 className="resume-section-title">Professional Summary</h2>
+            <p className="resume-summary-text">
+              Results-oriented Software Engineer and Odoo ERP Specialist with a BS in Computer Science from FAST-NUCES.
+              Experienced in custom Odoo ERP module development, multi-tenant cloud architectures, edge hardware and IoT integrations
+              (UHF RFID automated tracking, Zebra industrial thermal printers), enterprise LLMs with RAG, autonomous n8n workflows,
+              and full-stack Flutter and web applications.
             </p>
           </div>
 
-          {/* Core Competencies */}
-          <div style={{ marginBottom: '1.75rem' }}>
-            <h3 style={{ fontSize: '1.15rem', color: '#00f2fe', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.65rem' }}>
-              Core Competencies
-            </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.875rem' }}>
-              <div>
-                <strong style={{ color: '#fff' }}>• Odoo ERP &amp; Custom Modules:</strong> Custom Module Development, Multi-Tenant Architecture, Odoo White-Labeling &amp; De-branding, OWL (Odoo Web Library), UHF RFID Real-Time Tracking, Zebra ZPL Printing, QWeb Reports, Security/Record Rules, Automated Cloud Backups, PostgreSQL Tuning.
+          {/* Technical Skills & Competencies */}
+          <div className="resume-section">
+            <h2 className="resume-section-title">Technical Competencies</h2>
+            <div className="resume-skills-grid">
+              <div className="resume-skill-row">
+                <strong>Odoo ERP &amp; Modules:</strong> Custom Module Development, OWL (Odoo Web Library), Multi-Tenant SaaS, White-Labeling, Security &amp; Record Rules, QWeb Reporting, PostgreSQL Tuning.
               </div>
-              <div>
-                <strong style={{ color: '#fff' }}>• AI, LLMs &amp; Prompt Engineering:</strong> Large Language Models (LLMs), System Prompt Engineering, Enterprise RAG, LangChain, Hallucination Mitigation, Agent Development Kit (ADK), YOLO &amp; Computer Vision.
+              <div className="resume-skill-row">
+                <strong>Hardware &amp; IoT Integrations:</strong> UHF RFID Readers &amp; Antennas, Gen2 EPC Encoding, Zebra ZPL Thermal Label Printers, ESC/POS Network Receipt Printers.
               </div>
-              <div>
-                <strong style={{ color: '#fff' }}>• Automation &amp; Workflows:</strong> n8n Workflow Automation, Webhooks, Multi-Platform API Orchestration, Self-Healing Error Handling, Event-Driven Pipelines.
+              <div className="resume-skill-row">
+                <strong>Enterprise AI &amp; Workflows:</strong> Large Language Models (LLMs), RAG Architectures, System Prompt Engineering, Autonomous n8n Pipelines, LangChain, Computer Vision (YOLO).
               </div>
-              <div>
-                <strong style={{ color: '#fff' }}>• ERP, Khata &amp; POS Systems:</strong> Khata Digital Ledger Systems, Point of Sale (POS), Double-Entry Accounting Logic, Receipt &amp; Barcode Printing (ESC/POS), Multi-Branch Synchronization.
+              <div className="resume-skill-row">
+                <strong>Web &amp; Mobile Development:</strong> React 19, Next.js, TypeScript, Flutter &amp; Dart (iOS/Android), Node.js, REST APIs, TailwindCSS.
               </div>
-              <div>
-                <strong style={{ color: '#fff' }}>• Mobile &amp; App Development:</strong> Flutter, Dart, Cross-Platform iOS &amp; Android, Android Development Kit (ADK), State Management (Bloc / Provider), SQLite Offline Storage.
-              </div>
-              <div>
-                <strong style={{ color: '#fff' }}>• Data Science, ML &amp; ETL Jobs:</strong> Machine Learning, Statistical EDA, Distributed ETL Data Pipelines, Data Cleaning &amp; Preprocessing, Scikit-learn, Pandas, NumPy.
-              </div>
-              <div>
-                <strong style={{ color: '#fff' }}>• Full-Stack &amp; Modern Websites:</strong> Next.js, React 19, TypeScript, JavaScript, Node.js, Express, PostgreSQL, MySQL, Redis, RESTful API Architecture.
+              <div className="resume-skill-row">
+                <strong>Databases &amp; Cloud:</strong> PostgreSQL, MySQL, Redis, SQLite, Docker, Linux Server Administration, Automated Cloud Backups.
               </div>
             </div>
           </div>
 
-          {/* Experience */}
-          <div style={{ marginBottom: '1.75rem' }}>
-            <h3 style={{ fontSize: '1.15rem', color: '#00f2fe', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.75rem' }}>
-              Work Experience
-            </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          {/* Professional Experience */}
+          <div className="resume-section">
+            <h2 className="resume-section-title">Professional Experience</h2>
+            <div className="resume-experience-list">
               {EXPERIENCES.map((exp, idx) => (
-                <div key={idx}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap' }}>
-                    <div style={{ fontWeight: 700, fontSize: '1rem', color: '#fff' }}>
-                      {exp.role} <span style={{ color: '#38bdf8' }}>| {exp.company}</span>
+                <div key={idx} className="resume-item">
+                  <div className="resume-item-header">
+                    <div>
+                      <span className="resume-role-title">{exp.role}</span>
+                      <span className="resume-company"> — {exp.company}</span>
                     </div>
-                    <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
-                      {exp.period}
-                    </div>
+                    <span className="resume-item-date">{exp.period}</span>
                   </div>
-                  <ul style={{ paddingLeft: '1.2rem', marginTop: '0.4rem', fontSize: '0.875rem', color: '#cbd5e1' }}>
+                  {exp.location && (
+                    <div className="resume-item-meta">{exp.location} • {exp.type}</div>
+                  )}
+                  <ul className="resume-highlights">
                     {exp.highlights.map((h, hIdx) => (
-                      <li key={hIdx} style={{ marginBottom: '0.35rem' }}>{h}</li>
+                      <li key={hIdx}>{h}</li>
                     ))}
                   </ul>
                 </div>
@@ -182,32 +170,34 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           </div>
 
           {/* Education */}
-          <div style={{ marginBottom: '1.75rem' }}>
-            <h3 style={{ fontSize: '1.15rem', color: '#00f2fe', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>
-              Education
-            </h3>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap' }}>
-              <div style={{ fontWeight: 700, color: '#fff' }}>
-                {EDUCATION.institution}, {EDUCATION.campus}
+          <div className="resume-section">
+            <h2 className="resume-section-title">Education</h2>
+            <div className="resume-item">
+              <div className="resume-item-header">
+                <div>
+                  <span className="resume-role-title">{EDUCATION.degree}</span>
+                  <span className="resume-company"> — {EDUCATION.institution}</span>
+                </div>
+                <span className="resume-item-date">{EDUCATION.period}</span>
               </div>
-              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
-                {EDUCATION.period}
-              </div>
-            </div>
-            <div style={{ color: '#38bdf8', fontSize: '0.9rem', marginTop: '0.2rem' }}>
-              {EDUCATION.degree}
+              <div className="resume-item-meta">{EDUCATION.campus}</div>
+              {EDUCATION.achievements && (
+                <ul className="resume-highlights">
+                  {EDUCATION.achievements.map((ach, aIdx) => (
+                    <li key={aIdx}>{ach}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
 
-          {/* Certifications */}
-          <div>
-            <h3 style={{ fontSize: '1.15rem', color: '#00f2fe', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>
-              Achievements &amp; Certificates
-            </h3>
-            <ul style={{ paddingLeft: '1.2rem', fontSize: '0.875rem', color: '#cbd5e1' }}>
+          {/* Honors & Certifications */}
+          <div className="resume-section">
+            <h2 className="resume-section-title">Verified Certifications &amp; Honors</h2>
+            <ul className="resume-highlights">
               {CERTIFICATIONS.map((c, i) => (
-                <li key={i} style={{ marginBottom: '0.35rem' }}>
-                  <strong style={{ color: '#fff' }}>{c.title}</strong>: {c.description} ({c.date})
+                <li key={i}>
+                  <strong>{c.title}</strong> — {c.issuer} ({c.date}): {c.description}
                 </li>
               ))}
             </ul>

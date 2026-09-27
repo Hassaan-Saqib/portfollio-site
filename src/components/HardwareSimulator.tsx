@@ -90,23 +90,21 @@ export default function HardwareSimulator() {
               style={{
                 background: 'rgba(0, 255, 136, 0.1)',
                 color: '#00ff88',
-                padding: '0.25rem 0.65rem',
-                borderRadius: '3px',
+                padding: '0.3rem 0.75rem',
+                borderRadius: '9999px',
                 border: '1px solid rgba(0, 255, 136, 0.3)',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.72rem',
+                fontSize: '0.74rem',
                 fontWeight: 600,
-                letterSpacing: '0.04em',
               }}
             >
-              [HARDWARE_EMULATOR // UHF_RFID]
+              UHF RFID Hardware Simulator
             </span>
             <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>•</span>
-            <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', fontFamily: 'var(--font-mono)' }}>
-              FREQ: 915MHz • ZPL_SPOOLER: READY
+            <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem' }}>
+              Frequency: 915MHz • Zebra ZPL Spooler: Ready
             </span>
           </div>
-          <h3 style={{ fontSize: '1.35rem', marginTop: '0.35rem', color: '#fff' }}>
+          <h3 style={{ fontSize: '1.35rem', marginTop: '0.35rem', color: '#fff', fontWeight: 700 }}>
             Industrial IoT &amp; Odoo ERP Edge Integration
           </h3>
         </div>
@@ -117,21 +115,21 @@ export default function HardwareSimulator() {
           disabled={scanning}
           className="btn btn-emerald"
           id="simulate-rfid-btn"
-          style={{ opacity: scanning ? 0.7 : 1, borderRadius: '4px' }}
+          style={{ opacity: scanning ? 0.7 : 1, borderRadius: '6px' }}
         >
           {scanning ? (
             <>
               <RefreshCw size={15} className="animate-spin" />
               <span>
-                {scanStep === 'reading_rfid' && '[ INTERROGATING_TAGS... ]'}
-                {scanStep === 'syncing_odoo' && '[ UPDATING_ODOO_MOVES... ]'}
-                {scanStep === 'printing_zpl' && '[ SPOOLING_ZPL_PRINT... ]'}
+                {scanStep === 'reading_rfid' && 'Interrogating RFID Tags...'}
+                {scanStep === 'syncing_odoo' && 'Updating Odoo Stock Moves...'}
+                {scanStep === 'printing_zpl' && 'Spooling Zebra ZPL Print...'}
               </span>
             </>
           ) : (
             <>
               <Radio size={15} />
-              <span>[ TRIGGER_SCAN_STREAM ]</span>
+              <span>Simulate Live RFID Scan</span>
             </>
           )}
         </button>

@@ -75,23 +75,21 @@ export default function VisionSimulator() {
               style={{
                 background: 'rgba(0, 240, 255, 0.1)',
                 color: '#00f0ff',
-                padding: '0.25rem 0.65rem',
-                borderRadius: '3px',
+                padding: '0.3rem 0.75rem',
+                borderRadius: '9999px',
                 border: '1px solid rgba(0, 240, 255, 0.3)',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.72rem',
+                fontSize: '0.74rem',
                 fontWeight: 600,
-                letterSpacing: '0.04em',
               }}
             >
-              [CV_ENGINE // YOLO_KEYPOINTS]
+              Computer Vision &amp; Keypoint AI
             </span>
             <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>•</span>
-            <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', fontFamily: 'var(--font-mono)' }}>
-              SUB-CENTIMETER ACCURACY • RATIO: 1px = 0.824mm
+            <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem' }}>
+              Sub-Centimeter Accuracy • 1px = 0.824mm
             </span>
           </div>
-          <h3 style={{ fontSize: '1.35rem', marginTop: '0.35rem', color: '#fff' }}>
+          <h3 style={{ fontSize: '1.35rem', marginTop: '0.35rem', color: '#fff', fontWeight: 700 }}>
             Automated Physical Measurement &amp; Quality Control Tool
           </h3>
         </div>
@@ -103,10 +101,10 @@ export default function VisionSimulator() {
             disabled={isInferring}
             className="btn btn-primary btn-sm"
             id="run-vision-inference-btn"
-            style={{ borderRadius: '4px' }}
+            style={{ borderRadius: '6px' }}
           >
             <RefreshCw size={14} className={isInferring ? 'animate-spin' : ''} />
-            <span>[ TRIGGER_INFERENCE ]</span>
+            <span>Run Vision Inference</span>
           </button>
         </div>
       </div>

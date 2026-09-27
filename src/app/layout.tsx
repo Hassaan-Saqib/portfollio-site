@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -105,8 +107,26 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
       <body suppressHydrationWarning>
+        <script
+          id="theme-init-script"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var saved = localStorage.getItem('theme');
+                  if (saved === 'light') {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                  } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
         {/* Structured Data for SEO / Knowledge Graph */}
         <script
           id="person-schema-jsonld"
@@ -125,6 +145,10 @@ export default function RootLayout({
 
         {/* Content */}
         {children}
+
+        {/* Vercel Speed Insights & Web Analytics */}
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

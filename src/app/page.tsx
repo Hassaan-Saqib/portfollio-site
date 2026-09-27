@@ -4,10 +4,9 @@ import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import StatsBanner from '@/components/StatsBanner';
-import LabSection from '@/components/LabSection';
-import SkillsSection from '@/components/SkillsSection';
 import ExperienceSection from '@/components/ExperienceSection';
 import ProjectsSection from '@/components/ProjectsSection';
+import SkillsSection from '@/components/SkillsSection';
 import EducationCertifications from '@/components/EducationCertifications';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
@@ -38,25 +37,22 @@ export default function Home() {
           onOpenContact={handleOpenContact}
         />
 
-        {/* High-Impact Numerical Stats Banner */}
+        {/* Clean Metrics / Achievements */}
         <StatsBanner />
-
-        {/* Flagship Interactive Hardware & Computer Vision Lab */}
-        <LabSection />
-
-        {/* Specialized Skills & Technologies */}
-        <SkillsSection />
 
         {/* Work Experience Timeline */}
         <ExperienceSection />
 
-        {/* Featured Projects with Architecture Filter & Modals */}
+        {/* Featured Projects & Architecture */}
         <ProjectsSection />
+
+        {/* Skills & Technologies */}
+        <SkillsSection />
 
         {/* Education & Industry Honors */}
         <EducationCertifications />
 
-        {/* Direct Contact & Inquiry Messaging */}
+        {/* Direct Contact & Inquiries */}
         <ContactSection />
       </main>
 

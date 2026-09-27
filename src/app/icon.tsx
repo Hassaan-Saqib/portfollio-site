@@ -12,21 +12,21 @@ export default function Icon() {
       <div
         style={{
           fontSize: 14,
-          background: '#04060c',
+          background: '#09090b',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: '#00f0ff',
-          borderRadius: '6px',
-          border: '1.5px solid #00f0ff',
-          fontWeight: 900,
-          fontFamily: 'monospace',
+          color: '#fafafa',
+          borderRadius: '7px',
+          border: '1.5px solid #27272a',
+          fontWeight: 700,
+          fontFamily: 'sans-serif',
           letterSpacing: '-0.5px',
         }}
       >
-        <span style={{ color: '#00ff88', marginRight: '1px' }}>&gt;</span>MH
+        MH
       </div>
     ),
     {

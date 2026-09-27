@@ -2,26 +2,24 @@
 
 import React from 'react';
 import { EDUCATION, CERTIFICATIONS } from '@/data/portfolioData';
-import { GraduationCap, Award, Calendar, Check, Trophy, Terminal, ShieldCheck } from 'lucide-react';
+import { GraduationCap, Award, Calendar, CheckCircle2, Trophy, ShieldCheck } from 'lucide-react';
 
 export default function EducationCertifications() {
   return (
-    <section id="education" className="section" style={{ background: 'rgba(3, 5, 10, 0.65)' }}>
+    <section id="education" className="section">
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
           <div className="section-label">
-            <Terminal size={13} color="#00ff88" />
-            <span style={{ fontFamily: 'var(--font-mono)', letterSpacing: '0.08em' }}>
-              [ CREDENTIAL_LOG // ACADEMIC_KERNEL ]
-            </span>
+            <GraduationCap size={14} />
+            <span>Academic Background &amp; Honors</span>
           </div>
           <h2 className="section-title">
-            Engineering Degree &amp; <span className="gradient-text">Verified Honors</span>
+            Engineering Degree &amp; <span className="gradient-text">Credentials</span>
           </h2>
           <p className="section-subtitle">
-            Formal foundations in systems software, algorithms, and distributed computing from FAST-NUCES,
-            backed by industry verifications.
+            Formal foundations in systems software, data structures, and distributed computing from FAST-NUCES,
+            backed by industry certifications.
           </p>
         </div>
 
@@ -36,65 +34,71 @@ export default function EducationCertifications() {
           <div
             className="glass-card"
             style={{
-              borderRadius: '4px',
-              border: '1px solid rgba(0, 240, 255, 0.22)',
-              background: 'rgba(5, 8, 16, 0.88)',
+              borderRadius: '12px',
+              border: '1px solid var(--bg-card-border)',
+              background: 'var(--bg-card)',
               overflow: 'hidden',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
             }}
           >
-            {/* Terminal Chrome Bar */}
+            {/* Header Bar */}
             <div
               style={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                padding: '0.65rem 1rem',
-                background: 'rgba(0, 240, 255, 0.04)',
-                borderBottom: '1px solid rgba(0, 240, 255, 0.15)',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.74rem',
+                padding: '1.1rem 1.5rem',
+                borderBottom: '1px solid var(--bg-card-border)',
+                fontSize: '0.85rem',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-                <span style={{ color: '#00f0ff' }}>sys://academic/</span>
-                <span style={{ color: '#fff' }}>fast_nuces_bscs</span>
-              </div>
-              <span style={{ color: '#00ff88' }}>[CONFERRED]</span>
+              <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>University Education</span>
+              <span
+                style={{
+                  color: 'var(--badge-success-text)',
+                  background: 'var(--badge-success-bg)',
+                  padding: '0.2rem 0.6rem',
+                  borderRadius: '9999px',
+                  border: '1px solid var(--badge-success-border)',
+                  fontSize: '0.74rem',
+                  fontWeight: 600,
+                }}
+              >
+                Conferred
+              </span>
             </div>
 
-            <div style={{ padding: '1.75rem' }}>
+            <div style={{ padding: '2rem' }}>
               <div
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.45rem',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.76rem',
-                  color: '#00f0ff',
-                  marginBottom: '0.75rem',
-                  padding: '0.2rem 0.55rem',
-                  background: 'rgba(0, 240, 255, 0.08)',
-                  borderRadius: '3px',
-                  border: '1px solid rgba(0, 240, 255, 0.2)',
+                  fontSize: '0.78rem',
+                  color: 'var(--text-muted)',
+                  marginBottom: '1rem',
+                  padding: '0.25rem 0.65rem',
+                  background: 'var(--bg-secondary)',
+                  borderRadius: '6px',
+                  border: '1px solid var(--bg-card-border)',
                 }}
               >
-                <Calendar size={12} />
-                <span>EPOCH: {EDUCATION.period}</span>
+                <Calendar size={13} />
+                <span>{EDUCATION.period}</span>
               </div>
 
-              <h3 style={{ fontSize: '1.25rem', color: '#fff', fontWeight: 800, marginBottom: '0.35rem', fontFamily: 'var(--font-mono)' }}>
+              <h3 style={{ fontSize: '1.35rem', color: 'var(--text-primary)', fontWeight: 700, marginBottom: '0.4rem' }}>
                 {EDUCATION.degree}
               </h3>
 
-              <div style={{ fontSize: '0.95rem', color: '#00ff88', fontWeight: 600, marginBottom: '0.25rem', fontFamily: 'var(--font-mono)' }}>
+              <div style={{ fontSize: '1rem', color: 'var(--accent-primary)', fontWeight: 600, marginBottom: '0.25rem' }}>
                 {EDUCATION.institution}
               </div>
 
-              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '1.5rem', fontFamily: 'var(--font-mono)' }}>
-                // {EDUCATION.campus}
+              <div style={{ fontSize: '0.86rem', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
+                {EDUCATION.campus}
               </div>
 
               <ul
@@ -104,7 +108,7 @@ export default function EducationCertifications() {
                   margin: 0,
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '0.65rem',
+                  gap: '0.75rem',
                 }}
               >
                 {EDUCATION.achievements?.map((ach, idx) => (
@@ -113,14 +117,13 @@ export default function EducationCertifications() {
                     style={{
                       display: 'flex',
                       alignItems: 'flex-start',
-                      gap: '0.55rem',
-                      fontSize: '0.86rem',
+                      gap: '0.65rem',
+                      fontSize: '0.88rem',
                       color: 'var(--text-secondary)',
                       lineHeight: 1.5,
-                      fontFamily: 'var(--font-mono)',
                     }}
                   >
-                    <span style={{ color: '#00ff88', fontWeight: 'bold' }}>[+]</span>
+                    <CheckCircle2 size={16} color="var(--accent-primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
                     <span>{ach}</span>
                   </li>
                 ))}
@@ -129,9 +132,8 @@ export default function EducationCertifications() {
 
             <div
               style={{
-                padding: '1rem 1.75rem',
-                borderTop: '1px solid rgba(0, 240, 255, 0.12)',
-                background: 'rgba(0, 240, 255, 0.02)',
+                padding: '1.1rem 2rem',
+                borderTop: '1px solid var(--bg-card-border)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.5rem',
@@ -140,29 +142,29 @@ export default function EducationCertifications() {
             >
               <span
                 style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.72rem',
-                  padding: '0.2rem 0.5rem',
-                  borderRadius: '2px',
-                  background: 'rgba(0, 240, 255, 0.08)',
-                  color: '#00f0ff',
-                  border: '1px solid rgba(0, 240, 255, 0.25)',
+                  fontSize: '0.74rem',
+                  fontWeight: 600,
+                  padding: '0.25rem 0.65rem',
+                  borderRadius: '9999px',
+                  background: 'var(--badge-info-bg)',
+                  color: 'var(--badge-info-text)',
+                  border: '1px solid var(--badge-info-border)',
                 }}
               >
-                FIELD: COMPUTER_SCIENCE
+                Computer Science
               </span>
               <span
                 style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.72rem',
-                  padding: '0.2rem 0.5rem',
-                  borderRadius: '2px',
-                  background: 'rgba(0, 255, 136, 0.08)',
-                  color: '#00ff88',
-                  border: '1px solid rgba(0, 255, 136, 0.25)',
+                  fontSize: '0.74rem',
+                  fontWeight: 600,
+                  padding: '0.25rem 0.65rem',
+                  borderRadius: '9999px',
+                  background: 'var(--badge-success-bg)',
+                  color: 'var(--badge-success-text)',
+                  border: '1px solid var(--badge-success-border)',
                 }}
               >
-                STATUS: GRADUATED
+                Graduated BS
               </span>
             </div>
           </div>
@@ -174,30 +176,24 @@ export default function EducationCertifications() {
                 key={cert.title}
                 className="glass-card"
                 style={{
-                  padding: '1.25rem 1.5rem',
-                  borderRadius: '4px',
-                  background: 'rgba(5, 8, 16, 0.88)',
-                  border: idx === 0 
-                    ? '1px solid rgba(255, 184, 0, 0.35)' 
-                    : '1px solid rgba(0, 240, 255, 0.18)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--bg-card-border)',
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
                   <div
                     style={{
-                      width: '38px',
-                      height: '38px',
-                      borderRadius: '3px',
-                      background: idx === 0 
-                        ? 'rgba(255, 184, 0, 0.12)' 
-                        : 'rgba(0, 240, 255, 0.08)',
-                      border: idx === 0 
-                        ? '1px solid rgba(255, 184, 0, 0.4)' 
-                        : '1px solid rgba(0, 240, 255, 0.25)',
+                      width: '42px',
+                      height: '42px',
+                      borderRadius: '8px',
+                      background: 'var(--bg-secondary)',
+                      border: '1px solid var(--bg-card-border)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: idx === 0 ? '#ffb800' : '#00f0ff',
+                      color: 'var(--text-primary)',
                       flexShrink: 0,
                     }}
                   >
@@ -205,27 +201,27 @@ export default function EducationCertifications() {
                   </div>
 
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '0.2rem' }}>
-                      <h4 style={{ fontSize: '0.98rem', fontWeight: 700, color: '#fff', fontFamily: 'var(--font-mono)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '0.25rem' }}>
+                      <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)' }}>
                         {cert.title}
                       </h4>
                       <span
                         style={{
-                          fontFamily: 'var(--font-mono)',
-                          fontSize: '0.7rem',
+                          fontSize: '0.74rem',
                           color: 'var(--text-muted)',
+                          fontWeight: 500,
                         }}
                       >
-                        [{cert.date}]
+                        {cert.date}
                       </span>
                     </div>
 
-                    <div style={{ fontSize: '0.78rem', color: '#00f0ff', marginBottom: '0.4rem', fontFamily: 'var(--font-mono)' }}>
-                      ISSUER: {cert.issuer}
+                    <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '0.5rem', fontWeight: 500 }}>
+                      Issuer: <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{cert.issuer}</span>
                     </div>
 
                     {cert.description && (
-                      <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '0.65rem' }}>
+                      <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '0.75rem' }}>
                         {cert.description}
                       </p>
                     )}
@@ -234,17 +230,16 @@ export default function EducationCertifications() {
                       <span
                         style={{
                           display: 'inline-block',
-                          fontFamily: 'var(--font-mono)',
-                          fontSize: '0.68rem',
+                          fontSize: '0.74rem',
                           fontWeight: 600,
-                          padding: '0.2rem 0.5rem',
-                          borderRadius: '2px',
-                          background: idx === 0 ? 'rgba(255, 184, 0, 0.12)' : 'rgba(0, 255, 136, 0.1)',
-                          color: idx === 0 ? '#ffb800' : '#00ff88',
-                          border: idx === 0 ? '1px solid rgba(255, 184, 0, 0.3)' : '1px solid rgba(0, 255, 136, 0.3)',
+                          padding: '0.25rem 0.65rem',
+                          borderRadius: '9999px',
+                          background: 'var(--bg-secondary)',
+                          color: 'var(--text-primary)',
+                          border: '1px solid var(--bg-card-border)',
                         }}
                       >
-                        [{cert.badge}]
+                        {cert.badge}
                       </span>
                     )}
                   </div>
@@ -257,4 +252,3 @@ export default function EducationCertifications() {
     </section>
   );
 }
-

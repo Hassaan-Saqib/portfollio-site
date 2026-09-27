@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { STATS } from '@/data/portfolioData';
-import { Award, Briefcase, Cpu, CheckCircle, Terminal } from 'lucide-react';
+import { Award, Briefcase, Cpu, CheckCircle } from 'lucide-react';
 
 export default function StatsBanner() {
   const icons = [Briefcase, Cpu, Award, CheckCircle];
-  const hexIds = ['0x01', '0x02', '0x03', '0x04'];
+  const subtitles = ['Full-Stack & ERP', 'Cross-Discipline', 'Merit Recognition', 'Live In Production'];
 
   return (
     <section style={{ padding: '2rem 0', position: 'relative' }}>
@@ -15,44 +15,34 @@ export default function StatsBanner() {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '1rem',
+            gap: '1.25rem',
           }}
         >
           {STATS.map((stat, idx) => {
             const Icon = icons[idx % icons.length];
-            const isHighlight = idx === 2; // rank
             return (
               <div
                 key={stat.label}
                 className="glass-card"
                 style={{
-                  padding: '1.25rem 1.5rem',
+                  padding: '1.5rem',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '1.25rem',
-                  border: isHighlight
-                    ? '1px solid rgba(255, 184, 0, 0.4)'
-                    : '1px solid rgba(0, 240, 255, 0.15)',
-                  background: 'rgba(8, 12, 18, 0.85)',
-                  borderRadius: '6px',
-                  boxShadow: isHighlight ? '0 0 15px rgba(255, 184, 0, 0.15)' : 'none',
+                  borderRadius: '10px',
                 }}
               >
                 <div
                   style={{
-                    width: '44px',
-                    height: '44px',
-                    borderRadius: '4px',
-                    background: isHighlight 
-                      ? 'rgba(255, 184, 0, 0.12)' 
-                      : 'rgba(0, 240, 255, 0.1)',
-                    border: isHighlight
-                      ? '1px solid rgba(255, 184, 0, 0.4)'
-                      : '1px solid rgba(0, 240, 255, 0.3)',
+                    width: '46px',
+                    height: '46px',
+                    borderRadius: '8px',
+                    background: 'var(--bg-tertiary)',
+                    border: '1px solid var(--bg-card-border)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: isHighlight ? '#ffb800' : '#00f0ff',
+                    color: 'var(--accent-primary)',
                     flexShrink: 0,
                   }}
                 >
@@ -62,33 +52,33 @@ export default function StatsBanner() {
                 <div>
                   <div
                     style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.68rem',
-                      color: isHighlight ? '#ffb800' : 'var(--text-muted)',
-                      letterSpacing: '0.08em',
+                      fontSize: '0.72rem',
+                      fontWeight: 600,
+                      textTransform: 'uppercase',
+                      color: 'var(--text-muted)',
+                      letterSpacing: '0.05em',
                       marginBottom: '0.2rem',
                     }}
                   >
-                    [{hexIds[idx]} // METRIC]
+                    {subtitles[idx]}
                   </div>
                   <div
                     style={{
                       fontSize: '1.75rem',
                       fontWeight: 800,
-                      color: isHighlight ? '#ffb800' : '#fff',
+                      color: 'var(--text-primary)',
                       lineHeight: 1.1,
                       letterSpacing: '-0.02em',
-                      fontFamily: 'var(--font-mono)',
                     }}
                   >
                     {stat.value}
                   </div>
                   <div
                     style={{
-                      fontSize: '0.8rem',
+                      fontSize: '0.84rem',
                       color: 'var(--text-secondary)',
                       marginTop: '0.2rem',
-                      fontFamily: 'var(--font-mono)',
+                      fontWeight: 500,
                     }}
                   >
                     {stat.label}

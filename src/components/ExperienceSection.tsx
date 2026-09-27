@@ -2,40 +2,37 @@
 
 import React from 'react';
 import { EXPERIENCES } from '@/data/portfolioData';
-import { Briefcase, Calendar, ChevronRight, Sparkles, Terminal, GitCommit } from 'lucide-react';
+import { Briefcase, Calendar, CheckCircle2 } from 'lucide-react';
 
 export default function ExperienceSection() {
-  const commitHashes = ['7f92a1c', '4b81c3d', '1e65f0a'];
-
   return (
-    <section id="experience" className="section" style={{ background: 'rgba(5, 7, 12, 0.7)' }}>
+    <section id="experience" className="section">
       <div className="container">
         {/* Header */}
         <div className="section-header">
           <div className="section-label">
-            <Terminal size={13} />
-            <span>[ CAREER_LOGS // PRODUCTION_TIMELINE ]</span>
+            <Briefcase size={14} />
+            <span>Career History</span>
           </div>
           <h2 className="section-title">
-            Engineering <span className="gradient-text">Deployment History</span>
+            Professional Experience
           </h2>
-          <p className="section-subtitle" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.88rem' }}>
-            Production engineering record across enterprise Odoo ERP ecosystems, AI algorithms, and distributed systems.
+          <p className="section-subtitle">
+            Engineering record across enterprise Odoo ERP ecosystems, applied Artificial Intelligence, and distributed architectures.
           </p>
         </div>
 
         {/* Timeline Container */}
-        <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative' }}>
-          {/* Vertical Glowing Line */}
+        <div style={{ maxWidth: '850px', margin: '0 auto', position: 'relative' }}>
+          {/* Vertical Guide Line */}
           <div
             style={{
               position: 'absolute',
               top: '20px',
               bottom: '20px',
               left: '18px',
-              width: '1px',
-              background: 'linear-gradient(180deg, #00f0ff 0%, #00ff88 50%, rgba(255, 255, 255, 0.05) 100%)',
-              opacity: 0.6,
+              width: '2px',
+              background: 'var(--bg-card-border)',
             }}
           />
 
@@ -52,21 +49,27 @@ export default function ExperienceSection() {
                 <div
                   style={{
                     position: 'absolute',
-                    left: '10px',
-                    top: '22px',
-                    width: '18px',
-                    height: '18px',
-                    borderRadius: '3px',
-                    background: '#05070c',
-                    border: idx === 0 ? '2px solid #00f0ff' : '2px solid #526075',
-                    boxShadow: idx === 0 ? '0 0 12px #00f0ff' : 'none',
+                    left: '11px',
+                    top: '28px',
+                    width: '16px',
+                    height: '16px',
+                    borderRadius: '50%',
+                    background: 'var(--bg-card)',
+                    border: idx === 0 ? '2px solid var(--accent-primary)' : '2px solid var(--text-muted)',
                     zIndex: 2,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}
                 >
-                  <div style={{ width: '4px', height: '4px', background: idx === 0 ? '#00f0ff' : '#526075' }} />
+                  <div
+                    style={{
+                      width: '6px',
+                      height: '6px',
+                      borderRadius: '50%',
+                      background: idx === 0 ? 'var(--accent-primary)' : 'var(--text-muted)',
+                    }}
+                  />
                 </div>
 
                 {/* Card */}
@@ -74,43 +77,46 @@ export default function ExperienceSection() {
                   className="glass-card"
                   style={{
                     padding: '1.75rem',
-                    border: idx === 0 ? '1px solid rgba(0, 240, 255, 0.35)' : '1px solid rgba(255, 255, 255, 0.08)',
-                    borderRadius: '6px',
-                    background: 'rgba(8, 12, 18, 0.95)',
                   }}
                 >
-                  {/* Top Terminal Commit Bar */}
+                  {/* Top Status Bar */}
                   <div
                     style={{
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
-                      paddingBottom: '0.65rem',
+                      paddingBottom: '0.85rem',
                       marginBottom: '1rem',
-                      borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.72rem',
+                      borderBottom: '1px solid var(--bg-card-border)',
+                      fontSize: '0.8rem',
                     }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: 'var(--text-muted)' }}>
-                      <GitCommit size={14} color="#00ff88" />
-                      <span>commit {commitHashes[idx % commitHashes.length]}</span>
-                      <span style={{ color: 'rgba(255, 255, 255, 0.2)' }}>//</span>
-                      <span style={{ color: idx === 0 ? '#00ff88' : 'var(--text-secondary)' }}>
-                        {idx === 0 ? '[CURRENT_ENGAGEMENT]' : '[ARCHIVED]'}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span
+                        style={{
+                          width: '7px',
+                          height: '7px',
+                          borderRadius: '50%',
+                          background: idx === 0 ? '#10b981' : 'var(--text-muted)',
+                        }}
+                      />
+                      <span style={{ color: idx === 0 ? '#10b981' : 'var(--text-muted)', fontWeight: 600 }}>
+                        {idx === 0 ? 'Current Role' : 'Previous Experience'}
                       </span>
                     </div>
 
                     <span
                       style={{
-                        color: exp.type === 'Full-Time' ? '#00ff88' : '#00f0ff',
-                        background: exp.type === 'Full-Time' ? 'rgba(0, 255, 136, 0.08)' : 'rgba(0, 240, 255, 0.08)',
-                        padding: '0.15rem 0.45rem',
-                        borderRadius: '3px',
-                        border: exp.type === 'Full-Time' ? '1px solid rgba(0, 255, 136, 0.25)' : '1px solid rgba(0, 240, 255, 0.25)',
+                        color: 'var(--text-secondary)',
+                        background: 'var(--bg-tertiary)',
+                        padding: '0.2rem 0.65rem',
+                        borderRadius: '9999px',
+                        border: '1px solid var(--bg-card-border)',
+                        fontWeight: 600,
+                        fontSize: '0.74rem',
                       }}
                     >
-                      {exp.type.toUpperCase()}
+                      {exp.type}
                     </span>
                   </div>
 
@@ -125,33 +131,31 @@ export default function ExperienceSection() {
                     }}
                   >
                     <div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: '0.2rem' }}>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.25rem' }}>
                         {exp.role}
                       </h3>
-                      <div style={{ fontSize: '0.95rem', color: '#00f0ff', fontWeight: 600, fontFamily: 'var(--font-mono)' }}>
+                      <div style={{ fontSize: '0.95rem', color: 'var(--accent-primary)', fontWeight: 600 }}>
                         @ {exp.company}
                       </div>
                     </div>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                      <span
-                        style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '0.4rem',
-                          fontFamily: 'var(--font-mono)',
-                          fontSize: '0.75rem',
-                          color: '#94a3b8',
-                          background: 'rgba(255, 255, 255, 0.03)',
-                          padding: '0.25rem 0.65rem',
-                          borderRadius: '3px',
-                          border: '1px solid rgba(255, 255, 255, 0.08)',
-                        }}
-                      >
-                        <Calendar size={12} color="#00f0ff" />
-                        {exp.period}
-                      </span>
-                    </div>
+                    <span
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.45rem',
+                        fontSize: '0.8rem',
+                        fontWeight: 500,
+                        color: 'var(--text-muted)',
+                        background: 'var(--bg-tertiary)',
+                        padding: '0.3rem 0.65rem',
+                        borderRadius: '6px',
+                        border: '1px solid var(--bg-card-border)',
+                      }}
+                    >
+                      <Calendar size={13} />
+                      {exp.period}
+                    </span>
                   </div>
 
                   {/* Bullet points */}
@@ -177,9 +181,7 @@ export default function ExperienceSection() {
                           lineHeight: 1.6,
                         }}
                       >
-                        <span style={{ color: '#00ff88', fontFamily: 'var(--font-mono)', flexShrink: 0, marginTop: '2px' }}>
-                          [+]
-                        </span>
+                        <CheckCircle2 size={16} color="var(--accent-primary)" style={{ flexShrink: 0, marginTop: '3px' }} />
                         <span>{bullet}</span>
                       </li>
                     ))}
@@ -190,9 +192,9 @@ export default function ExperienceSection() {
                     style={{
                       display: 'flex',
                       flexWrap: 'wrap',
-                      gap: '0.35rem',
+                      gap: '0.4rem',
                       paddingTop: '0.85rem',
-                      borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+                      borderTop: '1px solid var(--bg-card-border)',
                     }}
                   >
                     {exp.skills.map((s) => (
