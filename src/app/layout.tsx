@@ -2,12 +2,18 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://muhammadhassaan.com'),
-  title: 'Muhammad Hassaan | Odoo ERP Specialist & Full-Stack AI Engineer',
+  metadataBase: new URL('https://hassaansaqib.com'),
+  title: 'Muhammad Hassaan | AI Engineer & Odoo Developer',
   description:
     'Portfolio of Muhammad Hassaan, BSCS FAST-NUCES graduate. Specialized in Odoo ERP custom modules, multi-tenant architecture, UHF RFID & Zebra printer hardware integration, enterprise customized LLMs, n8n automation, Khata/POS systems, and Flutter apps.',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   keywords: [
     'Muhammad Hassaan',
+    'AI Engineer',
     'Odoo Developer',
     'Odoo ERP Specialist',
     'Odoo Custom Modules',
@@ -32,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://muhammadhassaan.dev',
+    url: 'https://hassaansaqib.com',
     title: 'Muhammad Hassaan | Odoo ERP Specialist & Full-Stack AI Engineer',
     description:
       'Explore projects in enterprise Odoo ERP development, UHF RFID tracking, multi-tenant SaaS, customized LLMs, n8n workflows, POS/Khata systems, and Flutter apps by Muhammad Hassaan.',
