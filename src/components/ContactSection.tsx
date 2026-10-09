@@ -194,6 +194,57 @@ export default function ContactSection() {
 
               <div style={{ padding: '1.75rem' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  {/* WhatsApp Instant Connect Feature Card */}
+                  <a
+                    href="https://wa.me/923187090077?text=Hi%20Muhammad%20Hassaan!%20I%20reviewed%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project."
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      background: 'rgba(16, 185, 129, 0.08)',
+                      borderRadius: '8px',
+                      padding: '1rem 1.25rem',
+                      border: '1px solid rgba(16, 185, 129, 0.25)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      textDecoration: 'none',
+                      transition: 'all 0.15s ease',
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+                      <div
+                        style={{
+                          width: '40px',
+                          height: '40px',
+                          borderRadius: '8px',
+                          background: 'rgba(16, 185, 129, 0.15)',
+                          border: '1px solid rgba(16, 185, 129, 0.3)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: 'var(--accent-emerald)',
+                          flexShrink: 0,
+                        }}
+                      >
+                        <MessageSquare size={18} />
+                      </div>
+                      <div>
+                        <div style={{ fontSize: '0.72rem', color: 'var(--accent-emerald)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                          Fastest Response • Instant
+                        </div>
+                        <div style={{ color: 'var(--text-primary)', fontWeight: 700, fontSize: '0.92rem' }}>
+                          Chat on WhatsApp
+                        </div>
+                      </div>
+                    </div>
+                    <span
+                      className="btn btn-emerald btn-sm"
+                      style={{ padding: '0.35rem 0.75rem', borderRadius: '6px', fontSize: '0.78rem' }}
+                    >
+                      Open Chat
+                    </span>
+                  </a>
+
                   {/* Email Card */}
                   <div
                     style={{

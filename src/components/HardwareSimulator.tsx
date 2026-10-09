@@ -64,10 +64,10 @@ export default function HardwareSimulator() {
       className="glass-card"
       style={{
         padding: '1.75rem',
-        border: '1px solid rgba(0, 255, 136, 0.3)',
-        borderRadius: '6px',
-        background: 'rgba(8, 12, 18, 0.95)',
-        boxShadow: '0 15px 40px rgba(0,0,0,0.8), 0 0 25px rgba(0, 255, 136, 0.08)',
+        border: '1px solid var(--bg-card-border)',
+        borderRadius: '12px',
+        background: 'var(--bg-card)',
+        boxShadow: 'var(--shadow-card)',
         position: 'relative',
       }}
     >
@@ -80,7 +80,7 @@ export default function HardwareSimulator() {
           justifyContent: 'space-between',
           gap: '1rem',
           paddingBottom: '1.25rem',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+          borderBottom: '1px solid var(--bg-card-border)',
           marginBottom: '1.5rem',
         }}
       >
@@ -88,11 +88,11 @@ export default function HardwareSimulator() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
             <span
               style={{
-                background: 'rgba(0, 255, 136, 0.1)',
-                color: '#00ff88',
+                background: 'rgba(16, 185, 129, 0.12)',
+                color: 'var(--accent-emerald)',
                 padding: '0.3rem 0.75rem',
                 borderRadius: '9999px',
-                border: '1px solid rgba(0, 255, 136, 0.3)',
+                border: '1px solid rgba(16, 185, 129, 0.25)',
                 fontSize: '0.74rem',
                 fontWeight: 600,
               }}
@@ -104,7 +104,7 @@ export default function HardwareSimulator() {
               Frequency: 915MHz • Zebra ZPL Spooler: Ready
             </span>
           </div>
-          <h3 style={{ fontSize: '1.35rem', marginTop: '0.35rem', color: '#fff', fontWeight: 700 }}>
+          <h3 style={{ fontSize: '1.35rem', marginTop: '0.35rem', color: 'var(--text-primary)', fontWeight: 700 }}>
             Industrial IoT &amp; Odoo ERP Edge Integration
           </h3>
         </div>
@@ -149,13 +149,13 @@ export default function HardwareSimulator() {
             }}
             style={{
               padding: '0.35rem 0.75rem',
-              borderRadius: '4px',
+              borderRadius: '6px',
               fontFamily: 'var(--font-mono)',
               fontSize: '0.75rem',
               cursor: 'pointer',
-              border: selectedBatchIdx === idx ? '1px solid #00ff88' : '1px solid rgba(255, 255, 255, 0.1)',
-              background: selectedBatchIdx === idx ? 'rgba(0, 255, 136, 0.15)' : 'rgba(255, 255, 255, 0.03)',
-              color: selectedBatchIdx === idx ? '#00ff88' : 'var(--text-secondary)',
+              border: selectedBatchIdx === idx ? '1px solid var(--accent-emerald)' : '1px solid var(--bg-card-border)',
+              background: selectedBatchIdx === idx ? 'rgba(16, 185, 129, 0.15)' : 'var(--bg-tertiary)',
+              color: selectedBatchIdx === idx ? 'var(--accent-emerald)' : 'var(--text-secondary)',
               transition: 'all 0.15s',
             }}
           >
@@ -175,9 +175,9 @@ export default function HardwareSimulator() {
         {/* Step 1: RFID UHF Gateway */}
         <div
           style={{
-            background: 'rgba(5, 8, 20, 0.75)',
-            border: scanStep === 'reading_rfid' ? '1px solid #10b981' : '1px solid rgba(255, 255, 255, 0.08)',
-            borderRadius: '16px',
+            background: 'var(--bg-tertiary)',
+            border: scanStep === 'reading_rfid' ? '1px solid var(--accent-emerald)' : '1px solid var(--bg-card-border)',
+            borderRadius: '10px',
             padding: '1.25rem',
             position: 'relative',
             transition: 'border-color 0.3s',
@@ -185,14 +185,14 @@ export default function HardwareSimulator() {
         >
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Radio size={18} color="#10b981" />
-              <span style={{ fontWeight: 700, fontSize: '0.95rem', color: '#fff' }}>1. UHF RFID Antenna</span>
+              <Radio size={18} color="var(--accent-emerald)" />
+              <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--text-primary)' }}>1. UHF RFID Antenna</span>
             </div>
             <span
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.7rem',
-                color: scanStep === 'reading_rfid' ? '#10b981' : '#64748b',
+                color: scanStep === 'reading_rfid' ? 'var(--accent-emerald)' : 'var(--text-muted)',
               }}
             >
               902-928 MHz
@@ -205,7 +205,7 @@ export default function HardwareSimulator() {
 
           <div
             style={{
-              background: 'rgba(0, 0, 0, 0.4)',
+              background: 'var(--bg-primary)',
               borderRadius: '8px',
               padding: '0.75rem',
               fontFamily: 'var(--font-mono)',
@@ -213,10 +213,11 @@ export default function HardwareSimulator() {
               display: 'flex',
               flexDirection: 'column',
               gap: '0.4rem',
+              border: '1px solid var(--bg-card-border)',
             }}
           >
             {currentBatch.tags.map((t, idx) => (
-              <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', color: scanStep !== 'idle' ? '#34d399' : '#94a3b8' }}>
+              <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', color: scanStep !== 'idle' ? 'var(--accent-emerald)' : 'var(--text-muted)' }}>
                 <span>{t.epc.substring(0, 16)}...</span>
                 <span>{t.rssi}</span>
               </div>
@@ -227,9 +228,9 @@ export default function HardwareSimulator() {
         {/* Step 2: Odoo ERP Core */}
         <div
           style={{
-            background: 'rgba(5, 8, 20, 0.75)',
-            border: scanStep === 'syncing_odoo' ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.08)',
-            borderRadius: '16px',
+            background: 'var(--bg-tertiary)',
+            border: scanStep === 'syncing_odoo' ? '1px solid var(--accent-primary)' : '1px solid var(--bg-card-border)',
+            borderRadius: '10px',
             padding: '1.25rem',
             position: 'relative',
             transition: 'border-color 0.3s',
@@ -237,10 +238,10 @@ export default function HardwareSimulator() {
         >
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Database size={18} color="#38bdf8" />
-              <span style={{ fontWeight: 700, fontSize: '0.95rem', color: '#fff' }}>2. Odoo ERP 17/18 Engine</span>
+              <Database size={18} color="var(--accent-primary)" />
+              <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--text-primary)' }}>2. Odoo ERP 17/18 Engine</span>
             </div>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: '#38bdf8' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--accent-primary)' }}>
               Python / OWL
             </span>
           </div>
@@ -251,7 +252,7 @@ export default function HardwareSimulator() {
 
           <div
             style={{
-              background: 'rgba(0, 0, 0, 0.4)',
+              background: 'var(--bg-primary)',
               borderRadius: '8px',
               padding: '0.75rem',
               fontFamily: 'var(--font-mono)',
@@ -259,22 +260,23 @@ export default function HardwareSimulator() {
               display: 'flex',
               flexDirection: 'column',
               gap: '0.4rem',
+              border: '1px solid var(--bg-card-border)',
             }}
           >
-            <div style={{ color: '#94a3b8' }}>
-              Picking: <span style={{ color: '#fff' }}>{currentBatch.odooPicking}</span>
+            <div style={{ color: 'var(--text-muted)' }}>
+              Picking: <span style={{ color: 'var(--text-primary)' }}>{currentBatch.odooPicking}</span>
             </div>
-            <div style={{ color: '#94a3b8' }}>
-              Item: <span style={{ color: '#38bdf8' }}>{currentBatch.item}</span>
+            <div style={{ color: 'var(--text-muted)' }}>
+              Item: <span style={{ color: 'var(--accent-primary)' }}>{currentBatch.item}</span>
             </div>
-            <div style={{ color: '#94a3b8', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+            <div style={{ color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
               Status:
               {scanStep === 'completed' || scanStep === 'printing_zpl' ? (
-                <span style={{ color: '#10b981', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                <span style={{ color: 'var(--accent-emerald)', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                   <CheckCircle2 size={12} /> Stock Move Confirmed
                 </span>
               ) : (
-                <span style={{ color: '#fbbf24' }}>Waiting Verification</span>
+                <span style={{ color: 'var(--accent-amber)' }}>Waiting Verification</span>
               )}
             </div>
           </div>
@@ -283,9 +285,9 @@ export default function HardwareSimulator() {
         {/* Step 3: Zebra ZPL Printer Output */}
         <div
           style={{
-            background: 'rgba(5, 8, 20, 0.75)',
-            border: scanStep === 'printing_zpl' || scanStep === 'completed' ? '1px solid #a855f7' : '1px solid rgba(255, 255, 255, 0.08)',
-            borderRadius: '16px',
+            background: 'var(--bg-tertiary)',
+            border: scanStep === 'printing_zpl' || scanStep === 'completed' ? '1px solid var(--accent-primary)' : '1px solid var(--bg-card-border)',
+            borderRadius: '10px',
             padding: '1.25rem',
             position: 'relative',
             transition: 'border-color 0.3s',
@@ -293,10 +295,10 @@ export default function HardwareSimulator() {
         >
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Printer size={18} color="#c084fc" />
-              <span style={{ fontWeight: 700, fontSize: '0.95rem', color: '#fff' }}>3. Zebra Industrial Printer</span>
+              <Printer size={18} color="var(--accent-primary)" />
+              <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--text-primary)' }}>3. Zebra Industrial Printer</span>
             </div>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: '#c084fc' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--accent-primary)' }}>
               ZPL II Thermal
             </span>
           </div>
@@ -304,7 +306,7 @@ export default function HardwareSimulator() {
           {/* Rendered Physical Thermal Label Preview */}
           <div
             style={{
-              background: '#f8fafc',
+              background: '#ffffff',
               color: '#0f172a',
               borderRadius: '8px',
               padding: '0.85rem',
@@ -312,7 +314,7 @@ export default function HardwareSimulator() {
               fontSize: '0.7rem',
               lineHeight: 1.3,
               border: '2px dashed #94a3b8',
-              boxShadow: scanStep === 'completed' ? '0 0 15px rgba(168, 85, 247, 0.4)' : 'none',
+              boxShadow: scanStep === 'completed' ? '0 0 15px rgba(59, 130, 246, 0.4)' : 'none',
               transition: 'all 0.3s',
             }}
           >
@@ -347,9 +349,9 @@ export default function HardwareSimulator() {
         style={{
           marginTop: '1.5rem',
           padding: '1rem 1.25rem',
-          borderRadius: '12px',
-          background: 'rgba(255, 255, 255, 0.03)',
-          border: '1px solid rgba(255, 255, 255, 0.06)',
+          borderRadius: '10px',
+          background: 'var(--bg-tertiary)',
+          border: '1px solid var(--bg-card-border)',
           display: 'flex',
           alignItems: 'center',
           gap: '0.85rem',
@@ -357,9 +359,9 @@ export default function HardwareSimulator() {
           color: 'var(--text-secondary)',
         }}
       >
-        <ShieldCheck size={20} color="#10b981" style={{ flexShrink: 0 }} />
+        <ShieldCheck size={20} color="var(--accent-emerald)" style={{ flexShrink: 0 }} />
         <span>
-          <strong style={{ color: '#fff' }}>Field Tested in Large-Scale Industrial Manufacturing:</strong> Deployed for active apparel and textile enterprises to eliminate manual data entry, streamline warehouse dispatch by 70%, and ensure real-time inventory synchronization across multi-tenant cloud instances.
+          <strong style={{ color: 'var(--text-primary)' }}>Field Tested in Large-Scale Industrial Manufacturing:</strong> Deployed for active apparel and textile enterprises to eliminate manual data entry, streamline warehouse dispatch by 70%, and ensure real-time inventory synchronization across multi-tenant cloud instances.
         </span>
       </div>
     </div>

@@ -2,14 +2,14 @@
 
 import React, { useState } from 'react';
 import HardwareSimulator from './HardwareSimulator';
-import VisionSimulator from './VisionSimulator';
-import { Cpu, Radio, Sparkles, Sliders } from 'lucide-react';
+import GestureSimulator from './GestureSimulator';
+import { Cpu, Radio, Sparkles, Sliders, Hand } from 'lucide-react';
 
 export default function LabSection() {
-  const [activeTab, setActiveTab] = useState<'both' | 'hardware' | 'vision'>('both');
+  const [activeTab, setActiveTab] = useState<'both' | 'hardware' | 'gesture'>('both');
 
   return (
-    <section id="lab" className="section" style={{ background: 'rgba(6, 9, 15, 0.75)' }}>
+    <section id="lab" className="section" style={{ background: 'var(--bg-secondary)', borderTop: '1px solid var(--bg-card-border)', borderBottom: '1px solid var(--bg-card-border)' }}>
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
@@ -22,7 +22,7 @@ export default function LabSection() {
           </h2>
           <p className="section-subtitle">
             Interactive demonstrations replicating production deployments: UHF RFID interrogation
-            into Odoo ERP with Zebra ZPL spooling, and computer vision garment measurement models.
+            into Odoo ERP with Zebra ZPL spooling, and real-time computer vision AI gesture recognition models.
           </p>
         </div>
 
@@ -44,11 +44,11 @@ export default function LabSection() {
               fontSize: '0.82rem',
               fontWeight: 600,
               cursor: 'pointer',
-              border: activeTab === 'both' ? '1px solid #00ff88' : '1px solid rgba(255, 255, 255, 0.08)',
-              background: activeTab === 'both' ? 'rgba(0, 255, 136, 0.12)' : 'rgba(10, 14, 22, 0.6)',
-              color: activeTab === 'both' ? '#00ff88' : 'var(--text-secondary)',
+              border: activeTab === 'both' ? '1px solid var(--accent-emerald)' : '1px solid var(--bg-card-border)',
+              background: activeTab === 'both' ? 'rgba(16, 185, 129, 0.15)' : 'var(--bg-card)',
+              color: activeTab === 'both' ? 'var(--accent-emerald)' : 'var(--text-secondary)',
               transition: 'all 0.18s ease',
-              boxShadow: activeTab === 'both' ? '0 0 14px rgba(0, 255, 136, 0.2)' : 'none',
+              boxShadow: activeTab === 'both' ? '0 0 14px rgba(16, 185, 129, 0.2)' : 'none',
             }}
           >
             All Emulators
@@ -62,38 +62,38 @@ export default function LabSection() {
               fontSize: '0.82rem',
               fontWeight: 600,
               cursor: 'pointer',
-              border: activeTab === 'hardware' ? '1px solid #00ff88' : '1px solid rgba(255, 255, 255, 0.08)',
-              background: activeTab === 'hardware' ? 'rgba(0, 255, 136, 0.12)' : 'rgba(10, 14, 22, 0.6)',
-              color: activeTab === 'hardware' ? '#00ff88' : 'var(--text-secondary)',
+              border: activeTab === 'hardware' ? '1px solid var(--accent-emerald)' : '1px solid var(--bg-card-border)',
+              background: activeTab === 'hardware' ? 'rgba(16, 185, 129, 0.15)' : 'var(--bg-card)',
+              color: activeTab === 'hardware' ? 'var(--accent-emerald)' : 'var(--text-secondary)',
               transition: 'all 0.18s ease',
-              boxShadow: activeTab === 'hardware' ? '0 0 14px rgba(0, 255, 136, 0.2)' : 'none',
+              boxShadow: activeTab === 'hardware' ? '0 0 14px rgba(16, 185, 129, 0.2)' : 'none',
             }}
           >
             UHF RFID &amp; Odoo ERP
           </button>
 
           <button
-            onClick={() => setActiveTab('vision')}
+            onClick={() => setActiveTab('gesture')}
             style={{
               padding: '0.55rem 1.15rem',
               borderRadius: '9999px',
               fontSize: '0.82rem',
               fontWeight: 600,
               cursor: 'pointer',
-              border: activeTab === 'vision' ? '1px solid #00f0ff' : '1px solid rgba(255, 255, 255, 0.08)',
-              background: activeTab === 'vision' ? 'rgba(0, 240, 255, 0.12)' : 'rgba(10, 14, 22, 0.6)',
-              color: activeTab === 'vision' ? '#00f0ff' : 'var(--text-secondary)',
+              border: activeTab === 'gesture' ? '1px solid var(--accent-primary)' : '1px solid var(--bg-card-border)',
+              background: activeTab === 'gesture' ? 'rgba(59, 130, 246, 0.15)' : 'var(--bg-card)',
+              color: activeTab === 'gesture' ? 'var(--accent-primary)' : 'var(--text-secondary)',
               transition: 'all 0.18s ease',
-              boxShadow: activeTab === 'vision' ? '0 0 14px rgba(0, 240, 255, 0.2)' : 'none',
+              boxShadow: activeTab === 'gesture' ? '0 0 14px rgba(59, 130, 246, 0.2)' : 'none',
             }}
           >
-            Computer Vision AI
+            AI Gesture Recognition
           </button>
         </div>
 
         {/* Dynamic Simulator Display */}
         {(activeTab === 'both' || activeTab === 'hardware') && <HardwareSimulator />}
-        {(activeTab === 'both' || activeTab === 'vision') && <VisionSimulator />}
+        {(activeTab === 'both' || activeTab === 'gesture') && <GestureSimulator />}
       </div>
     </section>
   );

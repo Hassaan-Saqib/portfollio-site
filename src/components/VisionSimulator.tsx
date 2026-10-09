@@ -48,10 +48,10 @@ export default function VisionSimulator() {
       className="glass-card"
       style={{
         padding: '1.75rem',
-        border: '1px solid rgba(0, 240, 255, 0.3)',
-        borderRadius: '6px',
-        background: 'rgba(8, 12, 18, 0.95)',
-        boxShadow: '0 15px 40px rgba(0,0,0,0.8), 0 0 25px rgba(0, 240, 255, 0.08)',
+        border: '1px solid var(--bg-card-border)',
+        borderRadius: '12px',
+        background: 'var(--bg-card)',
+        boxShadow: 'var(--shadow-card)',
         position: 'relative',
         marginTop: '2rem',
       }}
@@ -65,7 +65,7 @@ export default function VisionSimulator() {
           justifyContent: 'space-between',
           gap: '1rem',
           paddingBottom: '1.25rem',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+          borderBottom: '1px solid var(--bg-card-border)',
           marginBottom: '1.5rem',
         }}
       >
@@ -73,11 +73,11 @@ export default function VisionSimulator() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
             <span
               style={{
-                background: 'rgba(0, 240, 255, 0.1)',
-                color: '#00f0ff',
+                background: 'rgba(59, 130, 246, 0.12)',
+                color: 'var(--accent-primary)',
                 padding: '0.3rem 0.75rem',
                 borderRadius: '9999px',
-                border: '1px solid rgba(0, 240, 255, 0.3)',
+                border: '1px solid rgba(59, 130, 246, 0.25)',
                 fontSize: '0.74rem',
                 fontWeight: 600,
               }}
@@ -89,7 +89,7 @@ export default function VisionSimulator() {
               Sub-Centimeter Accuracy • 1px = 0.824mm
             </span>
           </div>
-          <h3 style={{ fontSize: '1.35rem', marginTop: '0.35rem', color: '#fff', fontWeight: 700 }}>
+          <h3 style={{ fontSize: '1.35rem', marginTop: '0.35rem', color: 'var(--text-primary)', fontWeight: 700 }}>
             Automated Physical Measurement &amp; Quality Control Tool
           </h3>
         </div>
@@ -130,14 +130,14 @@ export default function VisionSimulator() {
               onClick={() => setActiveGarmentIdx(idx)}
               style={{
                 padding: '0.4rem 0.9rem',
-                borderRadius: '8px',
+                borderRadius: '6px',
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.8rem',
                 cursor: 'pointer',
-                border: activeGarmentIdx === idx ? '1px solid #00f2fe' : '1px solid rgba(255, 255, 255, 0.1)',
-                background: activeGarmentIdx === idx ? 'rgba(0, 242, 254, 0.15)' : 'rgba(255, 255, 255, 0.04)',
-                color: activeGarmentIdx === idx ? '#38bdf8' : 'var(--text-secondary)',
-                transition: 'all 0.2s',
+                border: activeGarmentIdx === idx ? '1px solid var(--accent-primary)' : '1px solid var(--bg-card-border)',
+                background: activeGarmentIdx === idx ? 'rgba(59, 130, 246, 0.15)' : 'var(--bg-tertiary)',
+                color: activeGarmentIdx === idx ? 'var(--accent-primary)' : 'var(--text-secondary)',
+                transition: 'all 0.15s',
               }}
             >
               {g.name}
@@ -151,7 +151,7 @@ export default function VisionSimulator() {
               type="checkbox"
               checked={showKeypoints}
               onChange={(e) => setShowKeypoints(e.target.checked)}
-              style={{ accentColor: '#00f2fe' }}
+              style={{ accentColor: 'var(--accent-primary)' }}
             />
             <span>Keypoints</span>
           </label>
@@ -160,7 +160,7 @@ export default function VisionSimulator() {
               type="checkbox"
               checked={showCalipers}
               onChange={(e) => setShowCalipers(e.target.checked)}
-              style={{ accentColor: '#10b981' }}
+              style={{ accentColor: 'var(--accent-emerald)' }}
             />
             <span>Measurement Calipers</span>
           </label>
@@ -179,9 +179,9 @@ export default function VisionSimulator() {
         {/* Computer Vision Inspection Canvas */}
         <div
           style={{
-            background: '#040714',
-            borderRadius: '16px',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
+            background: 'var(--bg-tertiary)',
+            borderRadius: '10px',
+            border: '1px solid var(--bg-card-border)',
             padding: '1.5rem',
             position: 'relative',
             minHeight: '340px',
@@ -197,10 +197,10 @@ export default function VisionSimulator() {
             style={{
               position: 'absolute',
               inset: '20px 30px',
-              border: '1px dashed #00f2fe',
+              border: '1px dashed var(--accent-primary)',
               borderRadius: '8px',
               pointerEvents: 'none',
-              background: 'rgba(0, 242, 254, 0.03)',
+              background: 'rgba(59, 130, 246, 0.05)',
             }}
           >
             <div
@@ -208,11 +208,11 @@ export default function VisionSimulator() {
                 position: 'absolute',
                 top: '-12px',
                 left: '12px',
-                background: '#00f2fe',
-                color: '#070913',
+                background: 'var(--accent-primary)',
+                color: '#ffffff',
                 fontSize: '0.65rem',
                 fontFamily: 'var(--font-mono)',
-                fontWeight: 800,
+                fontWeight: 700,
                 padding: '2px 8px',
                 borderRadius: '4px',
               }}
@@ -226,8 +226,8 @@ export default function VisionSimulator() {
                 position: 'absolute',
                 bottom: '10px',
                 right: '10px',
-                background: 'rgba(255, 255, 255, 0.1)',
-                border: '1px solid #fff',
+                background: 'var(--bg-primary)',
+                border: '1px solid var(--bg-card-border)',
                 width: '32px',
                 height: '32px',
                 display: 'flex',
@@ -235,7 +235,7 @@ export default function VisionSimulator() {
                 justifyContent: 'center',
                 fontSize: '0.55rem',
                 fontFamily: 'var(--font-mono)',
-                color: '#fff',
+                color: 'var(--text-secondary)',
               }}
               title="Physical Calibration Reference Square (100mm)"
             >
@@ -250,14 +250,14 @@ export default function VisionSimulator() {
               width: '100%',
               maxWidth: '260px',
               height: 'auto',
-              filter: 'drop-shadow(0 0 10px rgba(0, 242, 254, 0.2))',
+              filter: 'drop-shadow(0 0 10px rgba(59, 130, 246, 0.25))',
             }}
           >
             {/* Pants Outline */}
             <path
               d="M 85 45 L 215 45 L 225 150 L 210 290 L 160 290 L 150 145 L 140 290 L 90 290 L 75 150 Z"
-              fill="rgba(30, 58, 138, 0.45)"
-              stroke="#38bdf8"
+              fill="rgba(37, 99, 235, 0.35)"
+              stroke="var(--accent-primary)"
               strokeWidth="2.5"
             />
 
@@ -301,13 +301,13 @@ export default function VisionSimulator() {
             {/* Keypoints */}
             {showKeypoints && (
               <g>
-                <circle cx="85" cy="45" r="4" fill="#00f2fe" />
-                <circle cx="215" cy="45" r="4" fill="#00f2fe" />
-                <circle cx="150" cy="145" r="4" fill="#00f2fe" />
-                <circle cx="90" cy="290" r="4" fill="#00f2fe" />
-                <circle cx="140" cy="290" r="4" fill="#00f2fe" />
-                <circle cx="160" cy="290" r="4" fill="#00f2fe" />
-                <circle cx="210" cy="290" r="4" fill="#00f2fe" />
+                <circle cx="85" cy="45" r="4" fill="#38bdf8" />
+                <circle cx="215" cy="45" r="4" fill="#38bdf8" />
+                <circle cx="150" cy="145" r="4" fill="#38bdf8" />
+                <circle cx="90" cy="290" r="4" fill="#38bdf8" />
+                <circle cx="140" cy="290" r="4" fill="#38bdf8" />
+                <circle cx="160" cy="290" r="4" fill="#38bdf8" />
+                <circle cx="210" cy="290" r="4" fill="#38bdf8" />
               </g>
             )}
           </svg>
@@ -317,19 +317,19 @@ export default function VisionSimulator() {
         <div>
           <div
             style={{
-              background: 'rgba(5, 8, 20, 0.7)',
-              borderRadius: '16px',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
+              background: 'var(--bg-tertiary)',
+              borderRadius: '10px',
+              border: '1px solid var(--bg-card-border)',
               padding: '1.25rem',
               marginBottom: '1rem',
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-              <span style={{ fontWeight: 700, fontSize: '0.95rem', color: '#fff' }}>Dimensional Audit Report</span>
+              <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--text-primary)' }}>Dimensional Audit Report</span>
               <span
                 style={{
                   background: 'rgba(16, 185, 129, 0.1)',
-                  color: '#34d399',
+                  color: 'var(--accent-emerald)',
                   padding: '0.2rem 0.6rem',
                   borderRadius: '6px',
                   fontFamily: 'var(--font-mono)',
@@ -346,7 +346,7 @@ export default function VisionSimulator() {
 
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
               <thead>
-                <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.08)', color: 'var(--text-muted)' }}>
+                <tr style={{ borderBottom: '1px solid var(--bg-card-border)', color: 'var(--text-muted)' }}>
                   <th style={{ textAlign: 'left', paddingBottom: '0.5rem' }}>Dimension</th>
                   <th style={{ textAlign: 'left', paddingBottom: '0.5rem' }}>Target</th>
                   <th style={{ textAlign: 'left', paddingBottom: '0.5rem' }}>AI Measured</th>
@@ -354,23 +354,23 @@ export default function VisionSimulator() {
                 </tr>
               </thead>
               <tbody style={{ fontFamily: 'var(--font-mono)' }}>
-                <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.04)' }}>
-                  <td style={{ padding: '0.6rem 0', color: '#fff' }}>Waist Width</td>
+                <tr style={{ borderBottom: '1px solid var(--bg-card-border)' }}>
+                  <td style={{ padding: '0.6rem 0', color: 'var(--text-primary)' }}>Waist Width</td>
                   <td style={{ color: 'var(--text-secondary)' }}>{active.waist.target}</td>
-                  <td style={{ color: '#34d399', fontWeight: 600 }}>{active.waist.measured}</td>
-                  <td style={{ textAlign: 'right', color: '#34d399' }}>{active.waist.diff} (OK)</td>
+                  <td style={{ color: 'var(--accent-emerald)', fontWeight: 600 }}>{active.waist.measured}</td>
+                  <td style={{ textAlign: 'right', color: 'var(--accent-emerald)' }}>{active.waist.diff} (OK)</td>
                 </tr>
-                <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.04)' }}>
-                  <td style={{ padding: '0.6rem 0', color: '#fff' }}>Outseam Length</td>
+                <tr style={{ borderBottom: '1px solid var(--bg-card-border)' }}>
+                  <td style={{ padding: '0.6rem 0', color: 'var(--text-primary)' }}>Outseam Length</td>
                   <td style={{ color: 'var(--text-secondary)' }}>{active.outseam.target}</td>
-                  <td style={{ color: '#fbbf24', fontWeight: 600 }}>{active.outseam.measured}</td>
-                  <td style={{ textAlign: 'right', color: '#34d399' }}>{active.outseam.diff} (OK)</td>
+                  <td style={{ color: 'var(--accent-amber)', fontWeight: 600 }}>{active.outseam.measured}</td>
+                  <td style={{ textAlign: 'right', color: 'var(--accent-emerald)' }}>{active.outseam.diff} (OK)</td>
                 </tr>
                 <tr>
-                  <td style={{ padding: '0.6rem 0', color: '#fff' }}>Inseam Length</td>
+                  <td style={{ padding: '0.6rem 0', color: 'var(--text-primary)' }}>Inseam Length</td>
                   <td style={{ color: 'var(--text-secondary)' }}>{active.inseam.target}</td>
-                  <td style={{ color: '#d8b4fe', fontWeight: 600 }}>{active.inseam.measured}</td>
-                  <td style={{ textAlign: 'right', color: '#34d399' }}>{active.inseam.diff} (OK)</td>
+                  <td style={{ color: '#a855f7', fontWeight: 600 }}>{active.inseam.measured}</td>
+                  <td style={{ textAlign: 'right', color: 'var(--accent-emerald)' }}>{active.inseam.diff} (OK)</td>
                 </tr>
               </tbody>
             </table>
@@ -386,28 +386,28 @@ export default function VisionSimulator() {
           >
             <div
               style={{
-                background: 'rgba(255, 255, 255, 0.03)',
+                background: 'var(--bg-tertiary)',
                 padding: '0.75rem 1rem',
-                borderRadius: '10px',
-                border: '1px solid rgba(255, 255, 255, 0.06)',
+                borderRadius: '8px',
+                border: '1px solid var(--bg-card-border)',
               }}
             >
               <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>INFERENCE LATENCY</div>
-              <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#38bdf8', fontFamily: 'var(--font-mono)' }}>
+              <div style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--accent-primary)', fontFamily: 'var(--font-mono)' }}>
                 {active.inferenceTime}
               </div>
             </div>
 
             <div
               style={{
-                background: 'rgba(255, 255, 255, 0.03)',
+                background: 'var(--bg-tertiary)',
                 padding: '0.75rem 1rem',
-                borderRadius: '10px',
-                border: '1px solid rgba(255, 255, 255, 0.06)',
+                borderRadius: '8px',
+                border: '1px solid var(--bg-card-border)',
               }}
             >
               <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>CALIBRATION RATIO</div>
-              <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#10b981', fontFamily: 'var(--font-mono)', marginTop: '2px' }}>
+              <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--accent-emerald)', fontFamily: 'var(--font-mono)', marginTop: '2px' }}>
                 {active.calibrationRatio}
               </div>
             </div>

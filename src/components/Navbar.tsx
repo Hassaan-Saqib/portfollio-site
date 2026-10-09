@@ -26,6 +26,7 @@ export default function Navbar({ onOpenResume, onOpenContact }: NavbarProps) {
     { name: 'About', href: '#about' },
     { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Lab', href: '#lab' },
     { name: 'Skills', href: '#skills' },
     { name: 'Education', href: '#education' },
     { name: 'Contact', href: '#contact' },

@@ -6,6 +6,7 @@ import Hero from '@/components/Hero';
 import StatsBanner from '@/components/StatsBanner';
 import ExperienceSection from '@/components/ExperienceSection';
 import ProjectsSection from '@/components/ProjectsSection';
+import LabSection from '@/components/LabSection';
 import SkillsSection from '@/components/SkillsSection';
 import EducationCertifications from '@/components/EducationCertifications';
 import ContactSection from '@/components/ContactSection';
@@ -45,6 +46,9 @@ export default function Home() {
 
         {/* Featured Projects & Architecture */}
         <ProjectsSection />
+
+        {/* Live Interactive Engineering Lab (Hardware & AI Emulators) */}
+        <LabSection />
 
         {/* Skills & Technologies */}
         <SkillsSection />
